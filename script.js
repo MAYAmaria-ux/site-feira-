@@ -2,31 +2,30 @@ let currentScale = 1.0;
 const synth = window.speechSynthesis;
 let voices = [];
 
-// Carrega as vozes disponíveis no navegador do usuário
+// Carrega as vozes de sintetizador instaladas no navegador do usuário
 function loadVoices() {
   voices = synth.getVoices();
 }
 
-// Inicializa a lista de vozes (alguns navegadores carregam de forma assíncrona)
 loadVoices();
 if (speechSynthesis.onvoiceschanged !== undefined) {
   speechSynthesis.onvoiceschanged = loadVoices;
 }
 
-// Aumentar / Diminuir Fonte
+// Controle de zoom no tamanho da fonte
 function changeFontSize(delta) {
   currentScale = Math.max(0.8, Math.min(1.5, currentScale + delta));
   document.documentElement.style.setProperty('--font-scale', `${currentScale}rem`);
 }
 
-// Leitura em Voz Alta
+// Função de leitura em voz alta otimizada para sotaque de Português do Brasil (pt-BR)
 function readContent() {
-  stopReading(); // Cancela leituras ativas antes de iniciar
+  stopReading(); // Garante a interrupção de qualquer leitura em andamento
 
   const content = document.getElementById('main-content').innerText;
   const utterance = new SpeechSynthesisUtterance(content);
 
-  // Busca uma voz com sotaque de Português do Brasil no sistema
+  // Procura por uma voz nativa em pt-BR disponível no dispositivo/sistema
   const ptBrVoice = voices.find(voice => voice.lang === 'pt-BR' || voice.lang === 'pt_BR');
 
   if (ptBrVoice) {
@@ -34,7 +33,7 @@ function readContent() {
   }
   
   utterance.lang = 'pt-BR';
-  utterance.rate = 0.95; // Velocidade ligeiramente reduzida para melhor articulação
+  utterance.rate = 0.95; // Ajuste na velocidade para maior clareza pedagógica
 
   synth.speak(utterance);
 }

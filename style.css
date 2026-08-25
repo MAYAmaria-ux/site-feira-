@@ -1,113 +1,91 @@
-:root {
-  --bg-color: #f4f7f6;
-  --text-color: #333333;
-  --primary-color: #0056b3;
-  --card-bg: #ffffff;
-  --font-scale: 1rem;
-}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entendendo a Miopia - Saúde Visual na Escola</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-body {
-  font-family: Arial, sans-serif;
-  font-size: var(--font-scale);
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  margin: 0;
-  padding: 0;
-  line-height: 1.6;
-}
+  <!-- BARRA DE ACESSIBILIDADE -->
+  <div class="accessibility-bar" aria-label="Ferramentas de acessibilidade">
+    <span>Acessibilidade:</span>
+    <button onclick="changeFontSize(0.1)" aria-label="Aumentar tamanho do texto">A+</button>
+    <button onclick="changeFontSize(-0.1)" aria-label="Diminuir tamanho do texto">A-</button>
+    <button onclick="readContent()" aria-label="Ouvir texto da página">🔊 Ler Página</button>
+    <button onclick="stopReading()" aria-label="Parar leitura em voz alta">⏹️ Parar</button>
+  </div>
 
-/* Barra de Acessibilidade */
-.accessibility-bar {
-  background-color: #222;
-  color: #fff;
-  padding: 10px 20px;
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  justify-content: flex-end;
-  flex-wrap: wrap;
-}
+  <header>
+    <h1>Portal de Saúde Visual: Miopia</h1>
+    <p>Compreenda as causas, sintomas e o papel das lentes divergentes na correção da visão</p>
+  </header>
 
-.accessibility-bar button {
-  background: #0056b3;
-  color: #fff;
-  border: none;
-  padding: 8px 12px;
-  cursor: pointer;
-  border-radius: 4px;
-  font-weight: bold;
-}
+  <main id="main-content">
+    
+    <!-- SEÇÃO TEÓRICA SOBRE MIOPIA -->
+    <section>
+      <h2>O que é a Miopia?</h2>
+      <p>
+        A <strong>miopia</strong> é um distúrbio de refração ocular no qual a pessoa consegue enxergar objetos próximos com clareza, mas apresenta dificuldade para focar objetos distantes, percebendo-os de forma embaçada.
+      </p>
+      <p>
+        Na estrutura física do olho míope, o globo ocular costuma ser mais longo do que o normal ou a córnea apresenta uma curvatura acentuada. Por conta disso, os raios de luz convergem e formam o foco <strong>antes da retina</strong>, resultando na imagem desfocada para o que está distante. Na física óptica, a miopia é corrigida utilizando <strong>lentes divergentes</strong> (dioptrias com grau negativo), que reajustam o feixe de luz para focar exatamente sobre a retina.
+      </p>
+      <p>
+        <strong>Sintomas frequentes na infância e escola:</strong> dificuldade de ler o quadro de avisos ou a lousa, necessidade constante de franzir os testa/olhos para enxergar de longe, fadiga visual e dores de cabeça frequentes após o período escolar.
+      </p>
+    </section>
 
-.accessibility-bar button:hover {
-  background: #003d80;
-}
+    <!-- ÁREA DE VÍDEO -->
+    <section>
+      <h2>Vídeo Explicativo</h2>
+      <div class="video-container">
+        <!-- Substitua o atributo src pelo link/ID do vídeo desejado do YouTube -->
+        <iframe 
+          src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" 
+          title="Vídeo educativo sobre a Miopia e a visão humana" 
+          allowfullscreen>
+        </iframe>
+      </div>
+    </section>
 
-header {
-  background-color: var(--primary-color);
-  color: #fff;
-  text-align: center;
-  padding: 2rem 1rem;
-}
+    <!-- GALERIA DE IMAGENS -->
+    <section>
+      <h2>Esquemas e Ilustrações de Óptica</h2>
+      <div class="image-grid">
+        <div>
+          <img src="https://querobolsa.com.br/enem/fisica/miopia" alt="Esquema óptico demonstrando a formação da imagem antes da retina no olho míope e a correção com lente divergente">
+          <p><small>Formação da Imagem no Olho Míope e Correção</small></p>
+        </div>
+        <div>
+          <img src="https://static.mundoeducacao.uol.com.br/mundoeducacao/conteudo/reflex%C3%A3o%20e%20refra%C3%A3o.jpg" alt="Exemplo de simulação visual mostrando objetos distantes de forma desfocada versus visão corrigida por óculos">
+          <p><small>Comparação: Visão Desfocada vs. Visão Com Lente</small></p>
+        </div>
+      </div>
+    </section>
 
-main {
-  max-width: 900px;
-  margin: 20px auto;
-  padding: 0 15px;
-}
+    <!-- ÁREA DE LINKS EXTERNOS -->
+    <section class="external-links">
+      <h2>Materiais Complementares e Links Externos</h2>
+      <p>Consulte fontes de saúde e física para aprofundar seus conhecimentos sobre miopia:</p>
+      <ul>
+        <li>
+          <a href="https://www.einstein.br/n/glossario-de-saude/miopia" target="_blank" rel="noopener noreferrer">
+            Guia de Saúde: Miopia (Sintomas, Causas e Tratamentos) - Hospital Israelita Albert Einstein
+          </a>
+        </li>
+        <li>
+          <a href="https://querobolsa.com.br/enem/fisica/miopia" target="_blank" rel="noopener noreferrer">
+            Conteúdo de Física para o ENEM: Miopia e Correção por Lentes Divergentes - Quero Bolsa
+          </a>
+        </li>
+      </ul>
+    </section>
 
-section {
-  background: var(--card-bg);
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
+  </main>
 
-/* Galeria de Imagens */
-.image-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 15px;
-  margin-top: 15px;
-}
-
-.image-grid img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 6px;
-}
-
-/* Video Responsivo */
-.video-container {
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 */
-  height: 0;
-  overflow: hidden;
-  border-radius: 6px;
-}
-
-.video-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-
-/* Links Externos */
-.external-links ul {
-  list-style-type: square;
-  padding-left: 20px;
-}
-
-.external-links a {
-  color: var(--primary-color);
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.external-links a:hover {
-  text-decoration: underline;
-}
+  <script src="script.js"></script>
+</body>
+</html>
